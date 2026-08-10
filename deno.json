@@ -11,6 +11,7 @@
       "LICENSE"
     ]
   },
+  "minimumDependencyAge": "0",
   "fmt": {
     "useTabs": false,
     "lineWidth": 80,
@@ -30,5 +31,8 @@
   },
   "tasks": {
     "quality-check": "deno fmt --check && deno lint && deno check && deno test -a"
+  },
+  "imports": {
+    "@rayscale/types": "jsr:@rayscale/types@^1.0.0"
   }
 }

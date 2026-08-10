@@ -1,0 +1,16 @@
+{
+  "version": "5",
+  "specifiers": {
+    "jsr:@rayscale/types@1": "1.0.0"
+  },
+  "jsr": {
+    "@rayscale/types@1.0.0": {
+      "integrity": "f9afbd38e9b3498362f5e8c945dd2b45ceaaa223b1a5652bb28a532ea81d4412"
+    }
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@rayscale/types@1"
+    ]
+  }
+}
