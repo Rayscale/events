@@ -1,2 +1,3 @@
 # reactives
-A lightweight, type-safe reactivity library built with TypeScript.
+
+Lightweight, type-safe reactivity library built with TypeScript.

@@ -1,0 +1,26 @@
+# Deno
+.deno/
+.deno.lock
+
+# Testing
+coverage/
+*.prof
+
+# Project
+documentation/
+sandbox/
+
+# environment
+.env
+.env.*
+!.env.example
+
+# IDEs
+.vscode/*
+!.vscode/settings.json
+.idea/
+*.swp
+
+# OS Files
+.DS_Store
+Thumbs.db
