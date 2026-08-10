@@ -1,0 +1,34 @@
+{
+  "name": "@rayscale/reactives",
+  "description": "Architectural web interface framework",
+  "version": "1.0.0",
+  "exports": "./source/index.ts",
+  "publish": {
+    "include": [
+      "source/**/*.ts",
+      "deno.json",
+      "README.md",
+      "LICENSE"
+    ]
+  },
+  "fmt": {
+    "useTabs": false,
+    "lineWidth": 80,
+    "indentWidth": 2,
+    "semiColons": false,
+    "singleQuote": true,
+    "proseWrap": "always"
+  },
+  "lint": {
+    "rules": {
+      "tags": ["recommended"],
+      "include": ["ban-untagged-todo"],
+      "exclude": ["require-await", "no-this-alias"]
+    },
+    "include": ["source/", "tests/"],
+    "exclude": ["playground", "coverage/"]
+  },
+  "tasks": {
+    "quality-check": "deno fmt --check && deno lint && deno check && deno test -a"
+  }
+}
