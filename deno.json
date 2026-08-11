@@ -12,6 +12,11 @@
     ]
   },
   "minimumDependencyAge": "0",
+  "compilerOptions": {
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+    "strict": true
+  },
   "fmt": {
     "useTabs": false,
     "lineWidth": 80,
@@ -23,7 +28,12 @@
   "lint": {
     "rules": {
       "tags": ["recommended"],
-      "include": ["ban-untagged-todo"],
+      "include": [
+        "ban-untagged-todo",
+        "explicit-function-return-type",
+        "explicit-module-boundary-types",
+        "no-inferrable-types"
+      ],
       "exclude": ["require-await", "no-this-alias"]
     },
     "include": ["source/", "tests/"],
@@ -33,6 +43,7 @@
     "quality-check": "deno fmt --check && deno lint && deno check && deno test -a"
   },
   "imports": {
-    "@rayscale/types": "jsr:@rayscale/types@^1.0.0"
+    "@rayscale/types": "jsr:@rayscale/types@^1.0.2",
+    "@std/assert": "jsr:@std/assert@^1.0.19"
   }
 }
