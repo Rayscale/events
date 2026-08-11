@@ -1,5 +1,5 @@
 {
-  "name": "@rayscale/reactives",
+  "name": "@rayscale/events",
   "description": "Architectural web interface framework",
   "version": "1.0.0",
   "exports": "./source/index.ts",
