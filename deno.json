@@ -40,7 +40,7 @@
     "exclude": ["playground", "coverage/"]
   },
   "tasks": {
-    "quality-check": "deno fmt --check && deno lint && deno check && deno test -a"
+    "quality-check": "deno fmt --check && deno lint && deno check && deno test"
   },
   "imports": {
     "@rayscale/types": "jsr:@rayscale/types@^1.0.2",
