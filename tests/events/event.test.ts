@@ -10,7 +10,6 @@ class MockEvent extends Event {
 Deno.test('Event Class', async (test) => {
   await test.step('connect should add connection correctly', () => {
     const event = new MockEvent()
-
     const connection = event.connect(() => {})
 
     assertEquals(event.connections.has(connection), true)
