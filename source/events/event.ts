@@ -125,6 +125,9 @@ export abstract class Event<Payload extends unknown[] = []>
    * Disposes of the event, clearing all connections and marking it as unusable.
    */
   public dispose(): void {
+    if (this._disposed) {
+      throw new Error('Event is already disposed, cannot dispose again')
+    }
     this.clear(true)
     this._disposed = true
   }
