@@ -39,10 +39,7 @@ export class Store<Value> extends Event<[Value]> {
     this._equals = equals
   }
 
-  /**
-   * Internal method to trigger all store listeners with the current value.
-   */
-  private _fire(): void {
+  private fire(): void {
     for (const connection of this._connections) {
       try {
         connection.callback(this._value)
@@ -73,12 +70,12 @@ export class Store<Value> extends Event<[Value]> {
     if (this._equals) {
       if (!this._equals(this._value, value)) {
         this._value = value
-        this._fire()
+        this.fire()
       }
     } else {
       if (this._value !== value) {
         this._value = value
-        this._fire()
+        this.fire()
       }
     }
   }
