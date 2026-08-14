@@ -10,7 +10,7 @@ If you believe you have found a security vulnerability in this project, please
 report it privately. **Do not open a public issue** for security-related
 concerns.
 
-To report a vulnerability, please send an email to: **support@stonebogus.com**
+To report a vulnerability, please send an email to: **support@rayscale.online**
 
 ### What to include in your report:
 
