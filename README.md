@@ -1,6 +1,6 @@
 # Events
 
-> Foundational, reactive data structures and collection utilities.
+> Foundational type-safe event dispatching and reactive primitives.
 
 ## Description
 
