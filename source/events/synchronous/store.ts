@@ -1,4 +1,18 @@
-import { Event, EventConnection } from './event.ts'
+import { Event, EventConnection, ExposedEvent } from './event.ts'
+
+/**
+ * Exposes a restricted interface for a `Store`, including read access via `get()`.
+ *
+ * @template Value - The type of the stored value.
+ */
+export interface ExposedStore<Value> extends ExposedEvent<[Value]> {
+  /**
+   * Retrieves the current value of the store without allowing mutation.
+   *
+   * @returns The current {@link Value}.
+   */
+  get(): Value
+}
 
 /**
  * Represents a reactive state container that holds a value and notifies listeners upon changes.
@@ -57,6 +71,15 @@ export class Store<Value> extends Event<[Value]> {
    */
   public get(): Value {
     return this._value
+  }
+
+  /**
+   * Exposes a restricted view of the store including read-only access via `get()`.
+   *
+   * @returns An {@link ExposedStore} view of this store.
+   */
+  public override expose(): ExposedStore<Value> {
+    return this
   }
 
   /**

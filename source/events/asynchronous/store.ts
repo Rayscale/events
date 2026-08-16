@@ -1,4 +1,18 @@
-import { AsyncEvent, AsyncEventConnection } from './event.ts'
+import { AsyncEvent, AsyncEventConnection, ExposedAsyncEvent } from './event.ts'
+
+/**
+ * Exposes a restricted interface for an `AsyncStore`, including read access via `get()`.
+ *
+ * @template Value - The type of the stored value.
+ */
+export interface ExposedAsyncStore<Value> extends ExposedAsyncEvent<[Value]> {
+  /**
+   * Retrieves the current value of the store without allowing mutation.
+   *
+   * @returns The current {@link Value}.
+   */
+  get(): Value
+}
 
 /**
  * Represents an asynchronous reactive state container that holds a value and notifies listeners when it changes.
@@ -80,5 +94,14 @@ export class AsyncStore<Value> extends AsyncEvent<[Value]> {
       this._value = value
       await this.fire()
     }
+  }
+
+  /**
+   * Exposes a restricted view of the async store including read-only access via `get()`.
+   *
+   * @returns An {@link ExposedAsyncStore} view of this store.
+   */
+  public override expose(): ExposedAsyncStore<Value> {
+    return this
   }
 }
