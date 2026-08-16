@@ -6,18 +6,22 @@
 ## Description
 
 This library provides a robust foundation for building event-driven
-architectures in TypeScript. By offering `Signal` for generic pub/sub mechanisms
-and `Store` for reactive state containers, it enables highly decoupled
-components with strict typing. It natively integrates with standard lifecycle
-contracts (like `Disposable` and `Exposable`), ensuring safe resource cleanup
-and restricted API exposure.
+architectures in TypeScript. It exposes both synchronous and asynchronous APIs —
+`Signal` and `Store` for synchronous use, and `AsyncSignal` and `AsyncStore` for
+Promise-based listeners — enabling highly decoupled components with strict
+typing. It natively integrates with standard lifecycle contracts (like
+`Disposable` and `Exposable`), ensuring safe resource cleanup and restricted API
+exposure.
 
 ## Features
 
-- **Signal**: A strictly-typed event dispatcher for triggering and listening to
-  specific actions or notifications.
-- **Store**: A reactive state container that holds a value, evaluates equality,
-  and notifies subscribers only when the value changes.
+- **Signal / AsyncSignal**: Strictly-typed event dispatchers for triggering and
+  listening to specific actions or notifications. `Signal` is synchronous;
+  `AsyncSignal` awaits Promise-returning listeners.
+- **Store / AsyncStore**: Reactive state containers that hold a value, evaluate
+  equality, and notify subscribers only when the value changes. `Store` is
+  synchronous; `AsyncStore` supports asynchronous listeners and async equality
+  checks.
 - **Type-Safe Payloads**: Fully typed event payloads leveraging TypeScript's
   tuple types to ensure listeners and dispatchers are always in sync.
 - **Connection Management**: Persistent and non-persistent event connections
