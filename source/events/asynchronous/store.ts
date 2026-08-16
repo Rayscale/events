@@ -17,9 +17,18 @@ import { AsyncEvent, AsyncEventConnection } from './event.ts'
  * ```
  */
 export class AsyncStore<Value> extends AsyncEvent<[Value]> {
+  /** Internal current value of the store. */
   private _value: Value
+  /** Optional custom equality function to determine if the value has changed. */
   private _equals?: (a: Value, b: Value) => boolean | Promise<boolean>
 
+  /**
+   * Creates an instance of an AsyncStore.
+   *
+   * @param value - The initial value of the store.
+   * @param connections - Initial async event connections to add to the store.
+   * @param equals - An optional custom function to check value equality.
+   */
   public constructor(
     value: Value,
     connections: AsyncEventConnection<[Value]>[] = [],
@@ -43,10 +52,21 @@ export class AsyncStore<Value> extends AsyncEvent<[Value]> {
     }
   }
 
+  /**
+   * Retrieves the current value of the store.
+   *
+   * @returns The current {@link Value}.
+   */
   public get(): Value {
     return this._value
   }
 
+  /**
+   * Updates the store's value and notifies listeners if the value has changed.
+   *
+   * @param value - The new value to set.
+   * @throws {Error} Throws an error if the store has already been disposed.
+   */
   public async set(value: Value): Promise<void> {
     if (this.disposed) throw new Error('Store is disposed, cannot set value')
     let changed = false

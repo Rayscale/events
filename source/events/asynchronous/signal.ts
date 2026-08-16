@@ -19,7 +19,7 @@ import { AsyncEvent } from './event.ts'
 export class AsyncSignal<Payload extends unknown[] = []>
   extends AsyncEvent<Payload> {
   /**
-   * Dispatches the signal, invoking all connected async listener callbacks with the provided payload and awaiting their completion.
+   * Dispatches the signal, invoking all connected async listener callbacks with the provided payload.
    *
    * @param payload - The arguments passed to each event listener.
    * @throws {Error} Throws an error if the signal has already been disposed.
