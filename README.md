@@ -1,7 +1,6 @@
 # Events
 
-> Lightweight, type-safe, and framework-agnostic event dispatcher and reactive
-> state management library.
+> Foundational, reactive data structures and collection utilities.
 
 ## Description
 
