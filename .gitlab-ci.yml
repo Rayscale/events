@@ -1,0 +1,31 @@
+stages:
+  - quality
+  - publish
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "develop"
+
+cache:
+  key: '${CI_COMMIT_REF_SLUG}'
+  paths:
+    - .deno/
+
+variables:
+  DENO_DIR: '${CI_PROJECT_DIR}/.deno'
+
+quality-check:
+  stage: quality
+  image: denoland/deno:latest
+  script:
+    - deno task quality-check
+
+publish-to-jsr:
+  stage: publish
+  image: denoland/deno:latest
+  dependencies: []
+  script:
+    - deno publish --token $JSR_TOKEN
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"
