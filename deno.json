@@ -33,8 +33,7 @@
         "explicit-function-return-type",
         "explicit-module-boundary-types",
         "no-inferrable-types"
-      ],
-      "exclude": ["require-await", "no-this-alias"]
+      ]
     },
     "include": ["source/", "tests/"],
     "exclude": ["playground", "coverage/"]
